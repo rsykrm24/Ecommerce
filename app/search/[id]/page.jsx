@@ -1,13 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Navbar from "../../components/search/Navbar.jsx";
 import Card from "../../components/search/Card.jsx";
+import AlertSearch from "../../components/search/AlertSearch.jsx";
 
 export default function Page() {
   let { id } = useParams();
+  let route = useRouter()
   let [data, setData] = useState("loading");
+  let [search, setSearch] = useState("")
+  let [alertSearch, setAlertSearch] = useState(false)
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products")
       .then(res => {
@@ -22,12 +26,23 @@ export default function Page() {
       });
   }, [id]); // Add id as a dependency
 
+  function submitSearch(e) {
+    e.preventDefault()
+    if(search == "") {
+      setAlertSearch(true)
+    }
+    else {
+      route.push(`/search/${search.replace(" ")}`)
+    }
+  }
+  
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   return (
-    <div>
-      <Navbar />
+    <div className="bg-white h-screen">
+      <Navbar change={e => setSearch(e.target.value)} search={search} submit={submitSearch}/>
+      {alertSearch ? <AlertSearch/> : ""}
       {/*list item*/}
       <div className="bg-white text-black mt-2 grid grid-cols-2 p-2 gap-2">
         {
