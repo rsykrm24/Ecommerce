@@ -23,6 +23,9 @@ importers:
       react-dom:
         specifier: 19.0.0-rc-66855b96-20241106
         version: 19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106)
+      xendit-node:
+        specifier: ^6.0.0
+        version: 6.0.0
     devDependencies:
       postcss:
         specifier: ^8
@@ -799,6 +802,10 @@ packages:
       utf-8-validate:
         optional: true
 
+  xendit-node@6.0.0:
+    resolution: {integrity: sha512-Z7ewJNQz9/Wg8i/bYvS1GPTmQDozFFeN+XQfq1R89d7BDmn97H+1bAu1LNRACy/uoP3Vft185DUGMBHQEjgsmg==}
+    engines: {node: '>=18.0.0'}
+
   yaml@2.6.0:
     resolution: {integrity: sha512-a6ae//JvKDEra2kdi1qzCyrJW/WZCgFi8ydDV+eXExl95t+5R+ijnqHJbz9tmMh8FUjx3iv2fCQ4dclAQlO2UQ==}
     engines: {node: '>= 14'}
@@ -1527,5 +1534,7 @@ snapshots:
       strip-ansi: 7.1.0
 
   ws@8.18.0: {}
+
+  xendit-node@6.0.0: {}
 
   yaml@2.6.0: {}

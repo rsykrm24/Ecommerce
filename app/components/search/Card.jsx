@@ -6,7 +6,6 @@ export default function Card(props) {
       <img src={props.image} className="aspect-square object-contain"/>
       <h1 className="text-xl font-bold">Rp. {props.price}</h1>
       <h1 className="truncate text-lg">{props.title}</h1>
-      <button className="bg-black font-bold text-white rounded">Add to cart</button>
     </Link>
     )
 }
